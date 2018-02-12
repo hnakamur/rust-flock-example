@@ -26,7 +26,7 @@ fn run() -> Result<()> {
 
     let file = OpenOptions::new()
         .write(true)
-        .create(true)
+        .create_new(true)
         .open(LOCK_FILENAME)?;
 
     println!("{}: Preparing to lock file.", sleep_seconds);
