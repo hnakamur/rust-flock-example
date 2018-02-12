@@ -11,7 +11,6 @@ use std::time::Duration;
 use std::thread::sleep;
 use std::fs::remove_file;
 use std::fs::OpenOptions;
-use std::os::unix::fs::OpenOptionsExt;
 
 fn main() {
     run().unwrap();
@@ -28,7 +27,6 @@ fn run() -> Result<()> {
     let file = OpenOptions::new()
         .write(true)
         .create_new(true)
-        .mode(0o600)
         .open(LOCK_FILENAME)?;
 
     println!("{}: Preparing to lock file.", sleep_seconds);
